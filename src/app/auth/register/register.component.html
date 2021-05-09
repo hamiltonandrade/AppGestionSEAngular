@@ -1,0 +1,84 @@
+<div class="container">
+
+  <div class="row">
+
+    <div id="rd" class="bg-dark text-white p-2 mb-2 text-center col-12 col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6  offset-lg-3 col-xl-4 offset-xl-4" >
+
+      <h4>Register</h4>
+    </div>
+
+    <form ngNativeValidate [formGroup]="formRegister" (ngSubmit)="onSubmit()" class="col-12 col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6  offset-lg-3 col-xl-4 offset-xl-4">
+
+
+      <div class="form-group">
+        <label class="col-form-label">Name:</label>
+        <div>
+
+          <input type= "text" required  formControlName="name" placeholder="Enter Name" class="form-control" [ngClass]="{'is-invalid' : formErrors.name}"
+                 (blur)="logValidationErros()">
+
+          <span class=" text-danger form-control-feedback" *ngIf="formErrors.name">
+                      {{formErrors.name}}
+              </span>
+        </div>
+
+      </div>
+
+
+
+
+      <div class="form-group" >
+        <label >Email</label>
+        <input type = "email" formControlName="email" required="" class="form-control" placeholder="Enter Email" [ngClass]="{'is-invalid' : formErrors.email}" (blur)="logValidationErros()">
+
+        <span class=" text-danger form-control-feedback" *ngIf="formErrors.email">
+                      {{formErrors.email}}
+        </span>
+
+      </div>
+
+          <div class="form-group" >
+            <label >Confirmer Email</label>
+            <input type = "email" formControlName="confirmEmail" required="" class="form-control" placeholder="Enter Email" [ngClass]="{'is-invalid' : formErrors.confirmEmail}" (blur)="logValidationErros()">
+
+            <span class=" text-danger form-control-feedback" *ngIf="formErrors.confirmEmail">
+                      {{formErrors.confirmEmail}}
+
+            </span>
+
+
+          </div>
+
+
+
+            <div class="form-group">
+              <label >Password</label>
+              <input type = "password" formControlName="password" required="" class="form-control"  placeholder="Enter Password" [ngClass]="{'is-invalid' : formErrors.password}"
+                     (blur)="logValidationErros()">
+
+              <span class=" text-danger form-control-feedback" *ngIf="formErrors.password">
+                            {{formErrors.password}}
+              </span>
+
+            </div>
+
+
+
+      <div class="form-group">
+        <div>
+          <button type="submit" class="btn  btn-dark mt-2">Register</button>
+        </div>
+        <div>
+          <label class="mt-2"><a routerLink="/login" routerLinkActive="active-link">Login</a></label>
+        </div>
+
+
+      </div>
+
+
+    </form>
+
+  </div>
+
+</div>
+<router-outlet></router-outlet>

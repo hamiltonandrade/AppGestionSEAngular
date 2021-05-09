@@ -1,0 +1,100 @@
+<div class="content p-3">
+
+  <!--Formulaire-->
+
+  <div class="card mb-5" >
+
+
+    <div class="card-header bg-secondary text-center text-white ">
+      <h5>Registrer Société</h5>
+    </div>
+
+    <div class="card-body">
+
+      <form ngNativeValidate  [formGroup] = "registerSoc" (ngSubmit)="onSubmit()" class="col-sm-6 offset-sm-3">
+        <div class="form-group ">
+          <label>Name</label>
+          <input type="text" name="Name" formControlName="Name" placeholder="Name" required="required" class="form-control" [(ngModel)]="societe.Name">
+        </div>
+
+        <div class="form-group">
+          <label>Logo</label>
+          <input type="text" name="Logo" formControlName="Logo" placeholder="Logo" required="required" class="form-control" [(ngModel)]="societe.Logo">
+        </div>
+
+
+        <div class="form-group">
+          <label>Adresse</label>
+          <input type="text" name="Adresse" formControlName="Adresse" placeholder="Adresse" required="required" class="form-control" [(ngModel)]="societe.Adresse">
+        </div>
+
+        <button class="btn btn-primary bg-dark btn-sm mt-2 ">Submit</button>
+      </form>
+    </div>
+
+    <div class="card-footer bg-secondary ">
+
+    </div>
+
+
+  </div>
+
+
+
+  <!--Afficher Tables-->
+  <div class="card" >
+
+
+    <div class="card-header bg-secondary text-center text-white ">
+      <h5>Gestion Société</h5>
+    </div>
+
+    <div class="card-body">
+
+
+      <div class="container" style="background-color: white">
+
+        <h2 class="mb-4">Table Sociétés</h2>
+
+        <div class="table-responsive-sm">
+
+          <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover table-striped table-bordered" cellspacing="0">
+            <thead class="thead-dark">
+            <tr>
+
+              <th scope="col">ID</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Logo</th>
+              <th scope="col">Adresse</th>
+              <th>Action</th>
+              <th></th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let soc of societes">
+              <td scope="col">{{soc.Id_soc}}</td>
+              <td scope="col">{{soc.Name}}</td>
+              <td scope="col"><img src="{{soc.Logo}}" style="width: 40px; height: 40px" class="rounded-circle"></td>
+              <td scope="col">{{soc.Adresse}}</td>
+              <td><button class="btn btn-danger btn-sm" (click)="deleteData(soc.Id_soc)"><i class="fas fa-trash text-center"></i></button></td>
+              <td><button class="btn btn-warning btn-sm" routerLink="../editSoc/{{soc.Id_soc}}"><i class="fas fa-edit text-center"></i></button></td>
+            </tr>
+            </tbody>
+
+          </table>
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="card-footer bg-secondary text-white text-center">
+      <h5>AppGestion @Copyright</h5>
+    </div>
+
+
+  </div>
+
+</div>

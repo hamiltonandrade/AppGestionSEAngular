@@ -1,0 +1,42 @@
+<div class="content p-3">
+
+  <!--Formulaire-->
+
+  <div class="card mb-5" >
+
+
+    <div class="card-header bg-secondary text-center text-white ">
+      <h5>Update Employé</h5>
+    </div>
+
+    <div class="card-body">
+
+      <form ngNativeValidate [formGroup] = "registerEmp" (ngSubmit)="onSubmitEmp()"class="col-sm-6 offset-sm-3">
+        <div class="form-group ">
+          <label>Name</label>
+          <input type="text" name="Name" formControlName="Name" required="required" class="form-control" [(ngModel)]="employ.Name">
+        </div>
+
+        <div class="form-group  ">
+          <label>Prenom</label>
+          <input type="text" name="Prenom" formControlName="Prenom"  required="required" class="form-control" [(ngModel)]="employ.Prenom">
+        </div>
+
+
+        <div class="form-group">
+          <label>Salaire</label>
+          <input type="number" name="Salaire" formControlName="Salaire" required="required" class="form-control" [(ngModel)]="employ.Salaire">
+        </div>
+
+        <button class="btn btn-primary bg-dark btn-sm mt-2 ">Update</button>
+      </form>
+    </div>
+
+    <div class="card-footer bg-secondary ">
+
+    </div>
+
+
+  </div>
+
+</div>
